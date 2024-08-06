@@ -1,29 +1,28 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './Components/MainPage';
 import React from 'react';
-import Orders from './Components/Orders';
-import Products from './Components/Products';
-import Categories from './Components/Categories';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import CategoryPage from './pages/CategoryPage';
+import OrderPage from './pages/OrderPage';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import { AuthProvider } from './context/AuthContext';
 
-class App extends React.Component {
-
-  
-  render(){
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainPage />} >
-            <Route index element={<div>No page is selected.</div> } />
-            <Route path="products" element={<Products />} />
-            <Route path="categories" element={<Categories />} />
-            <Route path="orders" element={<Orders />} />
-          </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-  
-}
+const App = () => {
+    return (
+        <AuthProvider>
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/category/:id" element={<CategoryPage />} />
+                    <Route path="/order" element={<OrderPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                </Routes>
+            </Router>
+        </AuthProvider>
+    );
+};
 
 export default App;
