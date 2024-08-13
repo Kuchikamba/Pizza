@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import routes from '../routes';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -8,13 +9,13 @@ const Navbar = () => {
 
     const handleLogout = () => {
         logout();
-        navigate('/');
-    };
+        navigate(routes.HOME);;
+    };;
 
     return (
         <nav>
-            <Link to="/">Главная</Link>
-            <Link to="/order">Корзина</Link>
+            <Link to={routes.HOME}>Главная</Link>
+            <Link to={routes.ORDER}>Корзина</Link>
             {user ? (
                 <>
                     <span>Здравствуйте, {user.username}</span>
@@ -22,8 +23,8 @@ const Navbar = () => {
                 </>
             ) : (
                 <>
-                    <Link to="/login">Вход</Link>
-                    <Link to="/register">Регистрация</Link>
+                    <Link to={routes.LOGIN}>Вход</Link>
+                    <Link to={routes.REGISTER}>Регистрация</Link>
                 </>
             )}
         </nav>

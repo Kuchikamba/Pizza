@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import routes from '../routes';
 
 const LoginPage = () => {
     const { register, handleSubmit } = useForm();
@@ -11,7 +12,7 @@ const LoginPage = () => {
 
     const onSubmit = (data) => {
         login(data).then(() => {
-            navigate('/');
+            navigate(routes.HOME);
         });
     };
 

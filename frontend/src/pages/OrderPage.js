@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import OrderItem from '../components/OrderItem';
 import { createOrder } from '../api';  
 import { clearOrder } from '../redux/orderSlice'; 
+import routes from '../routes';
 
 const OrderPage = () => {
     const { register, handleSubmit } = useForm();
@@ -29,7 +30,7 @@ const OrderPage = () => {
         try {
             await createOrder(order);
             dispatch(clearOrder()); 
-            navigate('/'); 
+            navigate(routes.HOME); 
         } catch (error) {
             console.error("Ошибка при оформлении заказа:", error);
         }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../api';
 import { useNavigate } from 'react-router-dom';
+import routes from '../routes';
 
 const RegisterPage = () => {
     const { register, handleSubmit } = useForm();
@@ -9,7 +10,7 @@ const RegisterPage = () => {
 
     const onSubmit = (data) => {
         registerUser(data).then(() => {
-            navigate('/login');
+            navigate(routes.LOGIN);
         });
     };
 

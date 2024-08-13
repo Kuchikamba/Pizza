@@ -7,6 +7,7 @@ import OrderPage from './pages/OrderPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import { AuthProvider } from './context/AuthContext';
+import routes from './routes';
 
 const App = () => {
     return (
@@ -14,11 +15,11 @@ const App = () => {
             <Router>
                 <Navbar />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/category/:id" element={<CategoryPage />} />
-                    <Route path="/order" element={<OrderPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/login" element={<LoginPage />} />
+                    <Route path={routes.HOME} element={<Home />} />
+                    <Route path={routes.CATEGORY} element={<CategoryPage />} />
+                    <Route path={routes.ORDER} element={<OrderPage />} />
+                    <Route path={routes.REGISTER} element={<RegisterPage />} />
+                    <Route path={routes.LOGIN} element={<LoginPage />} />
                 </Routes>
             </Router>
         </AuthProvider>
