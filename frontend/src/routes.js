@@ -3,6 +3,6 @@
   LOGIN: '/login',
   CATEGORY: "/category/:id",
   ORDER: "/order",
-  REGISTER: "/register"
+  REGISTER: "/registration"
   };
 export default routes;
