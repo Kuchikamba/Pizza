@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api/v1', 
+    baseURL: 'jdbc:postgresql://localhost:5432/pizza_delivery_db/api/v1', 
 });
 
 export const fetchProducts = () => api.get('/products').then(res => res.data);
